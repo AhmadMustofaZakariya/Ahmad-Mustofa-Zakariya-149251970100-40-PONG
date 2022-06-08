@@ -4,6 +4,6 @@ Temp/*
  
 .vsconfig 
 *.sln
-*.csprej
+*.csproj
 .vs/*
 obj/* 
