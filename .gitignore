@@ -1,0 +1,9 @@
+Library/* 
+Logs/* 
+Temp/* 
+ 
+.vsconfig 
+*.sln
+*.csprej
+.vs/*
+obj/* 
