@@ -6,4 +6,4 @@ Temp/*
 *.sln
 *.csproj
 .vs/*
-obj/* 
+
