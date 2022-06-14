@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 1310337083}
   maxPowerUpAmount: 2
-  spawnInterval: 1
+  spawnInterval: 4
   powerUpAreaMin: {x: -8, y: -5}
   powerUpAreaMax: {x: 8, y: 5}
   powerUpTemplateList:
