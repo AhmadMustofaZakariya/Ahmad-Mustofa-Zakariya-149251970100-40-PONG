@@ -21,11 +21,11 @@ public class PaddleController : MonoBehaviour
     {
         if(Input.GetKey(upKey))
         {
-            return Vector2.up *speed;
+            return Vector2.up * speed;
         }
         else if(Input.GetKey(downKey))
         {
-            return Vector2.down *speed;
+            return Vector2.down * speed;
         }
         return Vector2.zero;
     }
@@ -33,5 +33,44 @@ public class PaddleController : MonoBehaviour
     {
         Debug.Log("TEST :" + movement);
         rig.velocity = movement;
+    }
+
+    public void ActivatePULengthUp(float multiplier)
+    {
+        transform.localScale = new Vector2(0.5f, 3f * multiplier);
+    }
+
+    public void DeactivatePULengthUP(float multiplier)
+    {
+        transform.localScale = new Vector2(0.5f, 3f);
+    }
+
+    public Vector2 ActivatePUSpeedUp(float multiplier)
+    {
+        Debug.Log("Paddle Speed Up");
+        if(Input.GetKey(upKey))
+        {
+            return Vector2.up * speed * multiplier;
+        }
+        else if(Input.GetKey(downKey))
+        {
+            return Vector2.down * speed * multiplier;
+        }
+        return Vector2.zero;
+    }
+
+    public Vector2 DeactivatePUSpeedUp(float multiplier)
+    {
+        Debug.Log("Paddle Slow Down");
+        if(Input.GetKey(upKey))
+        {
+            return Vector2.up * speed / multiplier;
+        }
+        else if(Input.GetKey(downKey))
+        {
+            return Vector2.down * speed / multiplier;
+        }
+        return Vector2.zero;
+        
     }
 }

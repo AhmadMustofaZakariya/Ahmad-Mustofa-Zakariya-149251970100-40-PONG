@@ -13,4 +13,12 @@ public class MainMenuController : MonoBehaviour
    {
        Debug.Log("Created by Ahmad Mustofa Zakariya - 149251970100-40");
    }
+   public void MainMenu()
+   {
+        SceneManager.LoadScene("Main Menu");
+   }
+   public void openCredit()
+   {
+        SceneManager.LoadScene("Credit Scene");
+   }
 }
