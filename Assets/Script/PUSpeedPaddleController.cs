@@ -10,24 +10,40 @@ public class PUSpeedPaddleController : MonoBehaviour
     public Collider2D paddleRight;
     public Collider2D paddleLeft;
     public float duration;
-    public float multiplier;
+    public int multiplier2;
+    private float timer;
+    public int spawnInterval;
+
+    private void Update() 
+    {
+        timer += Time.deltaTime;
+        if(timer > spawnInterval)
+        {
+            manager.RemovePowerUp(gameObject);
+        }    
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         if(collision == (ballTag.gameObject.tag == "RightBall"))
         {
-            StartCoroutine ( RightPaddle() );
+            paddleRight.GetComponent<PaddleController>().ActivatePUSpeedUp(multiplier2);
+            manager.isPUSpeedRight = true;
+            manager.RemovePowerUp(gameObject);
+
         } else if (collision == (ballTag.gameObject.tag == "LeftBall"))
         {
-            StartCoroutine ( LeftPaddle() );
+            paddleLeft.GetComponent<PaddleController>().ActivatePUSpeedUp(multiplier2);
+            manager.isPUSpeedLeft = true;
+            manager.RemovePowerUp(gameObject);
         }
         return;
     }
 
-    IEnumerator RightPaddle()
+
+    /* IEnumerator RightPaddle()
     {
         paddleRight.GetComponent<PaddleController>().ActivatePUSpeedUp(multiplier);
-        
         yield return new WaitForSeconds(duration);
         paddleRight.GetComponent<PaddleController>().DeactivatePUSpeedUp(multiplier);
         manager.RemovePowerUp(gameObject);
@@ -36,9 +52,8 @@ public class PUSpeedPaddleController : MonoBehaviour
     IEnumerator LeftPaddle()
     {
         paddleLeft.GetComponent<PaddleController>().ActivatePUSpeedUp(multiplier);
-        
         yield return new WaitForSeconds(duration);
         paddleLeft.GetComponent<PaddleController>().DeactivatePUSpeedUp(multiplier);
         manager.RemovePowerUp(gameObject);
-    }
+    }*/
 }

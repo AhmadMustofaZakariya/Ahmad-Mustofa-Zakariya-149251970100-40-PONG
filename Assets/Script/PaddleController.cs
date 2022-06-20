@@ -37,40 +37,25 @@ public class PaddleController : MonoBehaviour
 
     public void ActivatePULengthUp(float multiplier)
     {
-        transform.localScale = new Vector2(0.5f, 3f * multiplier);
+        transform.localScale = new Vector2(0.5f, transform.localScale.y * multiplier);
+        // tranform.localScale.y += new Vector2.y * multiplier;
     }
 
-    public void DeactivatePULengthUP(float multiplier)
+    public void DeactivatePULengthUp(float multiplier)
     {
-        transform.localScale = new Vector2(0.5f, 3f);
+        transform.localScale = new Vector2(0.5f, transform.localScale.y / multiplier);
+        // tranform.localScale.y += new Vector2.y / multiplier;
     }
-
-    public Vector2 ActivatePUSpeedUp(float multiplier)
+    
+    public void ActivatePUSpeedUp(int multiplier2)
     {
         Debug.Log("Paddle Speed Up");
-        if(Input.GetKey(upKey))
-        {
-            return Vector2.up * speed * multiplier;
-        }
-        else if(Input.GetKey(downKey))
-        {
-            return Vector2.down * speed * multiplier;
-        }
-        return Vector2.zero;
+        speed *= multiplier2;
     }
-
-    public Vector2 DeactivatePUSpeedUp(float multiplier)
+    
+    public void DeactivatePUSpeedUp(int multiplier2)
     {
         Debug.Log("Paddle Slow Down");
-        if(Input.GetKey(upKey))
-        {
-            return Vector2.up * speed / multiplier;
-        }
-        else if(Input.GetKey(downKey))
-        {
-            return Vector2.down * speed / multiplier;
-        }
-        return Vector2.zero;
-        
+        speed /= multiplier2;
     }
 }

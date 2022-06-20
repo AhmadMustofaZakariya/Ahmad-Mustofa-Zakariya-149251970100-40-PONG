@@ -6,7 +6,17 @@ public class PUSpeedUpController : MonoBehaviour
 {
     public PowerUpManager manager;
     public Collider2D ball;
-    public float magnitude;
+    public int spawnInterval;
+    public float magnitude; 
+    private float timer;
+    private void Update() 
+    {
+        timer += Time.deltaTime;
+        if(timer > spawnInterval)
+        {
+            manager.RemovePowerUp(gameObject);
+        }    
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {

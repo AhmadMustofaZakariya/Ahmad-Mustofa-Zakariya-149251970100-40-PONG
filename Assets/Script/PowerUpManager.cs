@@ -6,13 +6,15 @@ public class PowerUpManager : MonoBehaviour
 {
     public Transform spawnArea;
     public int maxPowerUpAmount;
-    public int spawnInterval;    
+    public int spawnInterval;
+    private int multiplier2;    
     public Vector2 powerUpAreaMin;
     public Vector2 powerUpAreaMax; 
     public List<GameObject> powerUpTemplateList;
     private List<GameObject> powerUpList; 
-    private float timer;
-     
+    private float timer, timerPULenghtRight, timerPULenghtLeft, timerPUSpeedRight, timerPUSpeedLeft, multiplier;
+    public bool isPULengtRight, isPULengtLeft, isPUSpeedRight, isPUSpeedLeft;
+    public GameObject paddleRight, paddleLeft; 
     private void Start() 
     { 
         powerUpList = new List<GameObject>();
@@ -26,6 +28,52 @@ public class PowerUpManager : MonoBehaviour
             GenerateRandomPowerUp();
             timer -= spawnInterval;
         }
+        if (isPULengtRight)
+        {
+            if(timerPULenghtRight > 5)
+            {
+                paddleRight.GetComponent<PaddleController>().DeactivatePULengthUp(2);
+                isPULengtRight = false;
+                timerPULenghtRight -= 5;
+            }
+            timerPULenghtRight += Time.deltaTime;
+        }
+
+        if (isPULengtLeft)
+        {
+            if(timerPULenghtLeft > 5)
+            {
+                paddleLeft.GetComponent<PaddleController>().DeactivatePULengthUp(2);
+                isPULengtLeft = false;
+                timerPULenghtLeft -= 5;
+            }
+            timerPULenghtLeft += Time.deltaTime;
+            Debug.Log(timerPULenghtLeft); 
+        }
+
+        if (isPUSpeedRight)
+        {
+            if(timerPUSpeedRight > 5)
+            {
+                paddleRight.GetComponent<PaddleController>().DeactivatePUSpeedUp(2);
+                isPUSpeedRight = false;
+                timerPUSpeedRight -= 5;
+            }
+            timerPUSpeedRight += Time.deltaTime;
+        }
+        
+        if (isPUSpeedLeft)
+        {
+            if(timerPUSpeedLeft > 5)
+            {
+                paddleLeft.GetComponent<PaddleController>().DeactivatePUSpeedUp(multiplier2);
+                isPUSpeedLeft = false;
+                timerPUSpeedLeft -= 5;
+            }
+            timerPUSpeedLeft += Time.deltaTime;
+        }
+
+
     }
 
     public void GenerateRandomPowerUp()
@@ -37,7 +85,6 @@ public class PowerUpManager : MonoBehaviour
     {
         if(powerUpList.Count >= maxPowerUpAmount)
         {
-            RemovePowerUp(powerUpList[0]);
             return;
         }
 

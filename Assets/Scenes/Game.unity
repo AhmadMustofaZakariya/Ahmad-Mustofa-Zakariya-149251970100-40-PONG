@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 2024741657}
   ball: {fileID: 347278267}
+  spawnInterval: 5
   magnitude: 2
 --- !u!61 &2205897
 BoxCollider2D:
@@ -345,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f6c532e1c499c47be66aab96adc9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   upKey: 119
   downKey: 115
 --- !u!61 &19085536
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed7776ff6625ce43bf631621f39ba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 2, y: 0}
+  speed: {x: 5, y: 0}
   resetPosition: {x: 0, y: 0}
 --- !u!212 &347278265
 SpriteRenderer:
@@ -1245,7 +1246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050097980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.18, y: -0.46, z: 36}
+  m_LocalPosition: {x: -4.6, y: -0.41, z: 36}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1336991648}
@@ -1335,8 +1336,9 @@ MonoBehaviour:
   ball: {fileID: 347278267}
   paddleRight: {fileID: 19085536}
   paddleLeft: {fileID: 2126744238}
-  duration: 5
+  duration: 0
   multiplier: 2
+  spawnInterval: 5
 --- !u!1 &1094305946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2075,7 @@ MonoBehaviour:
   paddleLeft: {fileID: 2126744238}
   duration: 5
   multiplier: 2
+  spawnInterval: 5
 --- !u!58 &1826450647
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2186,7 +2189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 1310337083}
-  maxPowerUpAmount: 6
+  maxPowerUpAmount: 2
   spawnInterval: 3
   powerUpAreaMin: {x: -8, y: -5}
   powerUpAreaMax: {x: 8, y: 5}
@@ -2194,6 +2197,10 @@ MonoBehaviour:
   - {fileID: 2205894}
   - {fileID: 1050097980}
   - {fileID: 1826450644}
+  isPULengtRight: 0
+  isPULengtLeft: 0
+  paddleRight: {fileID: 19085532}
+  paddleLeft: {fileID: 2126744234}
 --- !u!1 &2126744234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +2298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f6c532e1c499c47be66aab96adc9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   upKey: 113
   downKey: 97
 --- !u!61 &2126744238
