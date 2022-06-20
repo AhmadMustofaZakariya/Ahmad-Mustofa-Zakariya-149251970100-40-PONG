@@ -1336,7 +1336,7 @@ MonoBehaviour:
   ball: {fileID: 347278267}
   paddleRight: {fileID: 19085536}
   paddleLeft: {fileID: 2126744238}
-  duration: 0
+  duration: 5
   multiplier: 2
   spawnInterval: 5
 --- !u!1 &1094305946
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   paddleRight: {fileID: 19085536}
   paddleLeft: {fileID: 2126744238}
   duration: 5
-  multiplier: 2
+  multiplier2: 2
   spawnInterval: 5
 --- !u!58 &1826450647
 CircleCollider2D:
@@ -2199,6 +2199,8 @@ MonoBehaviour:
   - {fileID: 1826450644}
   isPULengtRight: 0
   isPULengtLeft: 0
+  isPUSpeedRight: 0
+  isPUSpeedLeft: 0
   paddleRight: {fileID: 19085532}
   paddleLeft: {fileID: 2126744234}
 --- !u!1 &2126744234
